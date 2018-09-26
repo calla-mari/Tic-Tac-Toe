@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic-Tac-Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,33 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Welcome to the game of Tic-Tac-Toe</h1>
+      <br />
+      <form id="sign-up-form">
+        <legend>Please sign up below</legend>
+        <input required type="email" name="credentials[email]" placeholder="Email" />
+        <input required type="password" name="credentials[password]" placeholder="Password" />
+        <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
+        <input type="submit" value="Register" />
+        <p id="display-message-signUp" ></p>
+      </form>
+      <br />
+      <form id="sign-in-form">
+        <legend>Please sign in below</legend>
+        <input required type="email" name="credentials[email]" placeholder="Email" />
+        <input required type="password" name="credentials[password]" placeholder="Password" />
+        <input type="submit" value="Sign In" />
+        <p id="display-message-signIn" ></p>
+      </form>
+      <br />
+      <form id="passChange-form" class="hidden">
+        <legend>Change your password</legend>
+        <input required type="password" name="passwords[old]" placeholder="Old Password" />
+        <input required type="password" name="passwords[new]" placeholder="New Password" />
+        <input type="submit" value="Change Password" />
+        <p id="display-message-passChange" ></p>
+      </form>
+      <br />
+      <button id="logOut" class="hidden"> Log Out </button>
     </body>
 </html>

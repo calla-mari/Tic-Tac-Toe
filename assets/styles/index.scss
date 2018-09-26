@@ -1,1 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
+
+
+.border {
+  border: 3px solid #000;
+  margin: 20px;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
