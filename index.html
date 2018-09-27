@@ -14,54 +14,67 @@
     <body>
       <h1>Welcome to the game of Tic-Tac-Toe</h1>
       <br />
-      <form id="sign-up-form">
+      <form id="sign-up-form" class="hidden">
         <legend>Please sign up below</legend>
         <input required type="email" name="credentials[email]" placeholder="Email" />
         <input required type="password" name="credentials[password]" placeholder="Password" />
         <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
         <input type="submit" value="Register" />
         <p id="display-message-signUp"></p>
+        <button id="logIn" style="background-color: rgb(50, 200, 220)"> Back to Log In </button>
       </form>
       <br />
       <form id="sign-in-form">
-        <legend>Please sign in below</legend>
+        <legend>Please sign in below </legend>
         <input required type="email" name="credentials[email]" placeholder="Email" />
         <input required type="password" name="credentials[password]" placeholder="Password" />
         <input type="submit" value="Sign In" />
         <p id="display-message-signIn"></p>
+        <br />
+        <legent>New Player? Please sign up</legent>
+        <button id="signUp" style="background-color: rgb(50, 200, 220)"> Sign Up </button>
       </form>
+      <p id="display-message-passChange" class="hidden"></p>
+      <button id="changePass" class="hidden"> Change Password </button>
       <br />
       <form id="passChange-form" class="hidden">
         <legend>Change your password</legend>
         <input required type="password" name="passwords[old]" placeholder="Old Password" />
         <input required type="password" name="passwords[new]" placeholder="New Password" />
         <input type="submit" value="Change Password" />
-        <p id="display-message-passChange"></p>
+        <button id="cancel"> Cancel </button>
       </form>
       <br />
       <button id="logOut" class="hidden"> Log Out </button>
       <br />
-      <div id="game-board" class="board clearfix"></div>
-      <br />
-      <button id="newGame" class="hidden" style="background-color: rgb(50, 200, 220)"> Start New Game </button>
-      <br />
-      <div class="container-fluid">
-      <br />
-
-      <div class="row">
-        <div class="col-md-4 box" id="0">0</div>
-        <div class="col-md-4 box" id="1">1</div>
-        <div class="col-md-4 box" id="2">2</div>
+      <!-- <div id="game-board" class="board clearfix"></div>
+      <br /> -->
+      <!-- <button id="newGame" class="hidden"> Start New Game </button> -->
+      <button id="newGame"> Start New Game </button>
+      <div class="alert alert-danger alert-dismissable"> Invalid move, Pick an empty square
+        <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
       </div>
-      <div class="row">
-        <div class="col-md-4 box" id="3">3</div>
-        <div class="col-md-4 box" id="4">4</div>
-        <div class="col-md-4 box" id="5">5</div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 box" id="6">6</div>
-        <div class="col-md-4 box" id="7">7</div>
-        <div class="col-md-4 box" id="8">8</div>
-      </div>
+      <div class="container-fluid w-auto">
+        <div class="row justify-content-center">
+          <div class="col"></div>
+          <div class="col box" id="0"></div>
+          <div class="col box" id="1"></div>
+          <div class="col box" id="2"></div>
+          <div class="col"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col"></div>
+          <div class="col box" id="3"></div>
+          <div class="col box" id="4"></div>
+          <div class="col box" id="5"></div>
+          <div class="col"></div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col"></div>
+          <div class="col box" id="6"></div>
+          <div class="col box" id="7"></div>
+          <div class="col box" id="8"></div>
+          <div class="col"></div>
+        </div>
     </body>
 </html>

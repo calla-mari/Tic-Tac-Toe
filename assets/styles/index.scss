@@ -18,8 +18,14 @@ $grey: rgb(128, 128, 128);
 $teal: rgb(0, 156, 161);
 $black: #000;
 
+#newGame {
+  background-color: rgb(50, 200, 220);
+  margin: 50px;
+}
+
 body {
   background-color: $background-color;
+  text-align: center;
 }
 
 .box {
@@ -27,12 +33,16 @@ body {
   border: 1px solid $white;
   color: $font-color;
   display: flex;
-  height: 150px;
+  height: 100px;
   justify-content: center;
 }
 
-.col-md-4:hover {
-  background-color: rgba(255, 255, 255, .2)
+.alert {
+  display: none;
+}
+
+.box:hover {
+  background-color: rgba(255, 255, 255, .2);
 }
 
 // #newGame {
