@@ -20,7 +20,7 @@
         <input required type="password" name="credentials[password]" placeholder="Password" />
         <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
         <input type="submit" value="Register" />
-        <p id="display-message-signUp" ></p>
+        <p id="display-message-signUp"></p>
       </form>
       <br />
       <form id="sign-in-form">
@@ -28,7 +28,7 @@
         <input required type="email" name="credentials[email]" placeholder="Email" />
         <input required type="password" name="credentials[password]" placeholder="Password" />
         <input type="submit" value="Sign In" />
-        <p id="display-message-signIn" ></p>
+        <p id="display-message-signIn"></p>
       </form>
       <br />
       <form id="passChange-form" class="hidden">
@@ -36,9 +36,32 @@
         <input required type="password" name="passwords[old]" placeholder="Old Password" />
         <input required type="password" name="passwords[new]" placeholder="New Password" />
         <input type="submit" value="Change Password" />
-        <p id="display-message-passChange" ></p>
+        <p id="display-message-passChange"></p>
       </form>
       <br />
       <button id="logOut" class="hidden"> Log Out </button>
+      <br />
+      <div id="game-board" class="board clearfix"></div>
+      <br />
+      <button id="newGame" class="hidden" style="background-color: rgb(50, 200, 220)"> Start New Game </button>
+      <br />
+      <div class="container-fluid">
+      <br />
+
+      <div class="row">
+        <div class="col-md-4 box" id="0">0</div>
+        <div class="col-md-4 box" id="1">1</div>
+        <div class="col-md-4 box" id="2">2</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 box" id="3">3</div>
+        <div class="col-md-4 box" id="4">4</div>
+        <div class="col-md-4 box" id="5">5</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 box" id="6">6</div>
+        <div class="col-md-4 box" id="7">7</div>
+        <div class="col-md-4 box" id="8">8</div>
+      </div>
     </body>
 </html>
