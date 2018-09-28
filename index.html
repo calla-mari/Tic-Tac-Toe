@@ -21,7 +21,7 @@
         <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
         <input type="submit" value="Register" />
         <p id="display-message-signUp"></p>
-        <button id="logIn" style="background-color: rgb(50, 200, 220)"> Back to Log In </button>
+        <button id="logIn" style="background-color: rgb(170, 225, 230)"> Back to Log In </button>
       </form>
       <br />
       <form id="sign-in-form">
@@ -32,7 +32,7 @@
         <p id="display-message-signIn"></p>
         <br />
         <legent>New Player? Please sign up</legent>
-        <button id="signUp" style="background-color: rgb(50, 200, 220)"> Sign Up </button>
+        <button id="signUp" style="background-color: rgb(170, 225, 230)"> Sign Up </button>
       </form>
       <p id="display-message-passChange" class="hidden"></p>
       <button id="changePass" class="hidden"> Change Password </button>
@@ -51,6 +51,9 @@
       <br /> -->
       <!-- <button id="newGame" class="hidden"> Start New Game </button> -->
       <button id="newGame"> Start New Game </button>
+      <p id="xWins" class="hidden">'x' Wins</p>
+      <p id="oWins" class="hidden">'o' Wins</p>
+      <p id="tie" class="hidden">It's a tie!</p>
       <div class="alert alert-danger alert-dismissable"> Invalid move, Pick an empty square
         <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
       </div>
@@ -76,5 +79,6 @@
           <div class="col box" id="8"></div>
           <div class="col"></div>
         </div>
+      </div>
     </body>
 </html>

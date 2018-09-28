@@ -4,27 +4,96 @@ let gamesPlayed = 0
 
 let moves = 0
 
+let board = []
+
 const onNewGame = function () {
   event.preventDefault()
   $('.box').text('')
+  board = []
   moves = 0
+  $('.box').removeClass('win')
+  $('.box').removeClass('tie')
+  $('#xWins').addClass('hidden')
+  $('#oWins').addClass('hidden')
+  $('#tie').addClass('hidden')
   gamesPlayed++
   // X score
   // O score
 }
 
-// const board = {
-//   player1: true,
-//   playerClick: function () {
-//     board.player1 = !board.player1
-//   }
-// }
-
-const top = [$('#0'), $('#1'), $('#2')]
-
 const checkWin = () => {
-  if (top[0] === top[1] && top[1] === top[2]) {
-    alert('win')
+  if (board[0] === board[1] && board[1] === board[2] && board[0] !== undefined) {
+    $('#0').addClass('win')
+    $('#1').addClass('win')
+    $('#2').addClass('win')
+    if (board[0] === 'x') {
+      $('#xWins').removeClass('hidden')
+    } else {
+      $('#oWins').removeClass('hidden')
+    }
+  } else if (board[3] === board[4] && board[4] === board[5] && board[4] !== undefined) {
+    $('#3').addClass('win')
+    $('#4').addClass('win')
+    $('#5').addClass('win')
+    if (board[4] === 'x') {
+      $('#xWins').removeClass('hidden')
+    } else {
+      $('#oWins').removeClass('hidden')
+    }
+  } else if (board[6] === board[7] && board[7] === board[8] && board[8] !== undefined) {
+    $('#6').addClass('win')
+    $('#7').addClass('win')
+    $('#8').addClass('win')
+    if (board[8] === 'x') {
+      $('#xWins').removeClass('hidden')
+    } else {
+      $('#oWins').removeClass('hidden')
+    }
+  } else if (board[0] === board[3] && board[3] === board[6] && board[0] !== undefined) {
+    $('#0').addClass('win')
+    $('#3').addClass('win')
+    $('#6').addClass('win')
+    if (board[0] === 'x') {
+      $('#xWins').removeClass('hidden')
+    } else {
+      $('#oWins').removeClass('hidden')
+    }
+  } else if (board[1] === board[4] && board[4] === board[7] && board[4] !== undefined) {
+    $('#1').addClass('win')
+    $('#4').addClass('win')
+    $('#7').addClass('win')
+    if (board[4] === 'x') {
+      $('#xWins').removeClass('hidden')
+    } else {
+      $('#oWins').removeClass('hidden')
+    }
+  } else if (board[2] === board[5] && board[5] === board[8] && board[8] !== undefined) {
+    $('#2').addClass('win')
+    $('#5').addClass('win')
+    $('#8').addClass('win')
+    if (board[8] === 'x') {
+      $('#xWins').removeClass('hidden')
+    } else {
+      $('#oWins').removeClass('hidden')
+    }
+  } else if (board[0] === board[4] && board[4] === board[8] && board[0] !== undefined) {
+    $('#0').addClass('win')
+    $('#4').addClass('win')
+    $('#8').addClass('win')
+    if (board[0] === 'x') {
+      $('#xWins').removeClass('hidden')
+    } else {
+      $('#oWins').removeClass('hidden')
+    }
+  } else if (board[2] === board[4] && board[4] === board[6] && board[4] !== undefined) {
+    $('#2').addClass('win')
+    $('#4').addClass('win')
+    $('#6').addClass('win')
+    if (board[4] === 'x') {
+      $('#xWins').removeClass('hidden')
+    } else {
+      $('#oWins').removeClass('hidden')
+    }
   }
 }
 
@@ -32,15 +101,25 @@ const gameProgress = () => {
   event.preventDefault()
   if ($(event.target).is(':empty')) {
     if (moves % 2 === 0) {
-      $(event.target).text('X')
+      $(event.target).text('x')
+      board[$(event.target)[0].id] = 'x'
+      console.log(board)
       moves++
-      if (moves >= 5) {
+      if (moves === 9) {
+        $('.box').addClass('tie')
+        $('#tie').removeClass('hidden')
+      } else if (moves >= 5) {
         checkWin()
       }
-    } else {
-      $(event.target).text('O')
+    } else if (moves % 2 !== 0) {
+      $(event.target).text('o')
+      board[$(event.target)[0].id] = 'o'
+      console.log(board)
       moves++
-      if (moves >= 5) {
+      if (moves === 9) {
+        $('.box').addClass('tie')
+        $('#tie').removeClass('hidden')
+      } else if (moves >= 5) {
         checkWin()
       }
     }
@@ -51,15 +130,12 @@ const gameProgress = () => {
     //     $('.alert').hide()
     //   })
     // }
-  } console.log(moves)
-}
-const alert = () => {
-
+  }
 }
 
 module.exports = {
   onNewGame,
-  // board,
+  board,
   gameProgress,
   checkWin
 }
