@@ -42,19 +42,15 @@ const passChangeSuccess = function () {
   $('#changePass').removeClass('hidden')
   $('#display-message-passChange').removeClass('hidden')
   $('#passChange-form').addClass('hidden')
-  setTimeout(function () {
-    $('#display-message-passChange').fadeOut().empty()
-  }, 3000)
+  // setTimeout(function () {
+  //   $('#display-message-passChange').fadeOut().empty()
+  // }, 3000)
 }
 
 const passChangeFail = function () {
   $('#display-message-passChange').html('Incorrect Password')
   $('#display-message-passChange').css('color', 'red')
   $('#passChange-form').trigger('reset')
-}
-
-const newGame = function () {
-  $()
 }
 
 const logOut = function () {
@@ -73,6 +69,5 @@ module.exports = {
   signInFail,
   passChangeSuccess,
   passChangeFail,
-  newGame,
   logOut
 }
