@@ -1,16 +1,19 @@
 'use strict'
 
 const store = require('../store.js')
+const game = require('../game.js')
 
 const signInSuccess = function (response) {
-  $('#newGame').removeClass('hidden')
+  $('#newGame-form').removeClass('hidden')
   $('#sign-in-form').trigger('reset')
   store.user = response.user
   $('#sign-in-form').addClass('hidden')
   $('#sign-up-form').addClass('hidden')
-  // $('#passChange-form').removeClass('hidden')
   $('#logOut').removeClass('hidden')
   $('#changePass').removeClass('hidden')
+  $('#scoreBoard').removeClass('hidden')
+  $('#allGames').removeClass('hidden')
+  // $('#gameBoard').removeClass('hidden')
 }
 
 const signInFail = function () {
@@ -20,13 +23,15 @@ const signInFail = function () {
 }
 
 const signUpSuccess = function () {
-  $('#newGame').removeClass('hidden')
+  $('#display-message-signUp').html('Thank you for signing up! Please sign in to play')
+  $('#display-message-signUp').css('color', 'green')
   $('#sign-up-form').trigger('reset')
-  $('#sign-in-form').addClass('hidden')
+  $('#sign-in-form').removeClass('hidden')
   $('#sign-up-form').addClass('hidden')
-  // $('#passChange-form').removeClass('hidden')
-  $('#logOut').removeClass('hidden')
-  $('#changePass').removeClass('hidden')
+  $('#1stStep').addClass('hidden')
+  $('#2ndStep').removeClass('hidden')
+  // $('#logOut').removeClass('hidden')
+  // $('#changePass').removeClass('hidden')
 }
 
 const signUpFail = function () {
@@ -60,6 +65,9 @@ const logOut = function () {
   $('#logOut').addClass('hidden')
   $('#newGame').addClass('hidden')
   $('#changePass').addClass('hidden')
+  $('#gameBoard').addClass('hidden')
+  $('#scoreBoard').addClass('hidden')
+  $('#gameLib').addClass('hidden')
 }
 
 module.exports = {

@@ -1,43 +1,59 @@
 'use strict'
 
 const getFormFields = require('../../lib/get-form-fields.js')
-const store = require('../store.js')
+// const store = require('./store.js')
 const gameApi = require('./gameApi.js')
 const gameUI = require('./gameUI.js')
-
-const onFindGame = function (event) {
-  event.preventDefault()
-  const gameData = getFormFields(event.target)
-  gameApi.findGame()
-    .then()
-    .catch()
-}
+const game = require('./game.js')
 
 const onAllGames = function (event) {
+  console.log('all games')
   event.preventDefault()
-  gameApi.allGames()
-    .then()
-    .catch()
+  const gameData = getFormFields(event.target)
+  gameApi.allGames(gameData)
+    .then(gameUI.allGamesSuccess)
+    .catch(console.log)
 }
 
 const onNewGame = function (event) {
   event.preventDefault()
   const gameData = getFormFields(event.target)
-  gameApi.createGame()
-    .then()
-    .catch()
+  gameApi.createGame(gameData)
+    .then(gameUI.createSuccess)
+    .catch(console.log)
 }
 
-const onUpdateGame = function (event) {
+const onUpdateScore = function (event) {
+  game.gameProgress(event)
   event.preventDefault()
-  const gameData = getFormFields(event.target)
-  gameApi.updateGame()
-    .then()
-    .catch()
+  const index = game.cellIndex
+  const value = game.turn
+  const over = game.gameOver
+  gameApi.updateScore(index, value, over)
+    .then(console.log)
+    .catch(console.log)
 }
+
+// const onUpdateX = function (event) {
+//   event.preventDefault()
+//   const xData = getFormFields(event.target)
+//   gameApi.updateX(xData)
+//     .then(console.log)
+//     .catch(console.log)
+// }
+//
+// const onUpdateO = function (event) {
+//   event.preventDefault()
+//   const oData = getFormFields(event.target)
+//   gameApi.updateO(oData)
+//     .then(console.log)
+//     .catch(console.log)
+// }
 
 module.exports = {
-  onFindGame,
   onAllGames,
-  onUpdateGame
+  onNewGame,
+  onUpdateScore
+  // onUpdateX,
+  // onUpdateO
 }

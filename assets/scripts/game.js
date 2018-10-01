@@ -1,108 +1,185 @@
 const gameUI = require('./gameUI.js')
+const store = require('./store.js')
 
 let moves = 0
 
-let board = []
+let cells = []
+
+let gamesPlayed = 1
+
+let gameOver = false
+
+$('#update').text('1')
+$('#x').text('0')
+$('#o').text('0')
+
+const newGame = function () {
+  event.preventDefault()
+  $('#gameBoard').removeClass('hidden')
+  $('.box').text('')
+  cells = []
+  moves = 0
+  $('.box').on('click', gameProgress)
+  $('.box').removeClass('win')
+  $('.box').removeClass('tie')
+  $('#xWins').addClass('hidden')
+  $('#oWins').addClass('hidden')
+  $('#tie').addClass('hidden')
+  $('#total').text(gamesPlayed++)
+  // O score
+  // X score
+}
+
+// const updateScore = () => {
+//   $('scoreBoard').bootstrapTable('updateRow', {
+//     index: 1,
+//     row: {
+//       total: gamesPlayed++,
+//       x: 0,
+//       o: 0
+//     }
+//   })
+// }
+
+let x = 1
+let o = 1
 
 const checkWin = () => {
-  if (board[0] === board[1] && board[1] === board[2] && board[0] !== undefined) {
+  if (cells[0] === cells[1] && cells[1] === cells[2] && cells[0] !== undefined) {
     $('#0').addClass('win')
     $('#1').addClass('win')
     $('#2').addClass('win')
-    if (board[0] === 'x') {
+    $('.box').off('click', gameProgress)
+    gameOver = true
+    if (cells[0] === 'x') {
       $('#xWins').removeClass('hidden')
+      $('#x').text(x++)
     } else {
       $('#oWins').removeClass('hidden')
+      $('#o').text(o++)
     }
-  } else if (board[3] === board[4] && board[4] === board[5] && board[4] !== undefined) {
+  } else if (cells[3] === cells[4] && cells[4] === cells[5] && cells[4] !== undefined) {
     $('#3').addClass('win')
     $('#4').addClass('win')
     $('#5').addClass('win')
-    if (board[4] === 'x') {
+    $('.box').off('click', gameProgress)
+    gameOver = true
+    if (cells[4] === 'x') {
       $('#xWins').removeClass('hidden')
+      $('#x').text(x++)
     } else {
       $('#oWins').removeClass('hidden')
+      $('#o').text(o++)
     }
-  } else if (board[6] === board[7] && board[7] === board[8] && board[8] !== undefined) {
+  } else if (cells[6] === cells[7] && cells[7] === cells[8] && cells[8] !== undefined) {
     $('#6').addClass('win')
     $('#7').addClass('win')
     $('#8').addClass('win')
-    if (board[8] === 'x') {
+    $('.box').off('click', gameProgress)
+    gameOver = true
+    if (cells[8] === 'x') {
       $('#xWins').removeClass('hidden')
+      $('#x').text(x++)
     } else {
       $('#oWins').removeClass('hidden')
+      $('#o').text(o++)
     }
-  } else if (board[0] === board[3] && board[3] === board[6] && board[0] !== undefined) {
+  } else if (cells[0] === cells[3] && cells[3] === cells[6] && cells[0] !== undefined) {
     $('#0').addClass('win')
     $('#3').addClass('win')
     $('#6').addClass('win')
-    if (board[0] === 'x') {
+    $('.box').off('click', gameProgress)
+    gameOver = true
+    if (cells[0] === 'x') {
       $('#xWins').removeClass('hidden')
+      $('#x').text(x++)
     } else {
       $('#oWins').removeClass('hidden')
+      $('#o').text(o++)
     }
-  } else if (board[1] === board[4] && board[4] === board[7] && board[4] !== undefined) {
+  } else if (cells[1] === cells[4] && cells[4] === cells[7] && cells[4] !== undefined) {
     $('#1').addClass('win')
     $('#4').addClass('win')
     $('#7').addClass('win')
-    if (board[4] === 'x') {
+    $('.box').off('click', gameProgress)
+    gameOver = true
+    if (cells[4] === 'x') {
       $('#xWins').removeClass('hidden')
+      $('#x').text(x++)
     } else {
       $('#oWins').removeClass('hidden')
+      $('#o').text(o++)
     }
-  } else if (board[2] === board[5] && board[5] === board[8] && board[8] !== undefined) {
+  } else if (cells[2] === cells[5] && cells[5] === cells[8] && cells[8] !== undefined) {
     $('#2').addClass('win')
     $('#5').addClass('win')
     $('#8').addClass('win')
-    if (board[8] === 'x') {
+    $('.box').off('click', gameProgress)
+    gameOver = true
+    if (cells[8] === 'x') {
       $('#xWins').removeClass('hidden')
+      $('#x').text(x++)
     } else {
       $('#oWins').removeClass('hidden')
+      $('#o').text(o++)
     }
-  } else if (board[0] === board[4] && board[4] === board[8] && board[0] !== undefined) {
+  } else if (cells[0] === cells[4] && cells[4] === cells[8] && cells[0] !== undefined) {
     $('#0').addClass('win')
     $('#4').addClass('win')
     $('#8').addClass('win')
-    if (board[0] === 'x') {
+    $('.box').off('click', gameProgress)
+    gameOver = true
+    if (cells[0] === 'x') {
       $('#xWins').removeClass('hidden')
+      $('#x').text(x++)
     } else {
       $('#oWins').removeClass('hidden')
+      $('#o').text(o++)
     }
-  } else if (board[2] === board[4] && board[4] === board[6] && board[4] !== undefined) {
+  } else if (cells[2] === cells[4] && cells[4] === cells[6] && cells[4] !== undefined) {
     $('#2').addClass('win')
     $('#4').addClass('win')
     $('#6').addClass('win')
-    if (board[4] === 'x') {
+    $('.box').off('click', gameProgress)
+    gameOver = true
+    if (cells[4] === 'x') {
       $('#xWins').removeClass('hidden')
+      $('#x').text(x++)
     } else {
       $('#oWins').removeClass('hidden')
+      $('#o').text(o++)
     }
+  } else if (moves === 9) {
+    $('.box').addClass('tie')
+    $('#tie').removeClass('hidden')
   }
 }
 
 const gameProgress = () => {
+  console.log(cells)
   event.preventDefault()
   if ($(event.target).is(':empty')) {
+    console.log(cells)
     if (moves % 2 === 0) {
       $(event.target).text('x')
-      board[$(event.target)[0].id] = 'x'
-      console.log(board)
+      cells[$(event.target)[0].id] = 'x'
+      let turn = 'x'
+      let cellIndex = $(event.target)[0].id
+      console.log(cells)
+      console.log(moves)
       moves++
-      if (moves === 9) {
-        $('.box').addClass('tie')
-        $('#tie').removeClass('hidden')
-      } else if (moves >= 5) {
+      if (moves >= 5) {
         checkWin()
       }
     } else if (moves % 2 !== 0) {
       $(event.target).text('o')
-      board[$(event.target)[0].id] = 'o'
-      console.log(board)
+      cells[$(event.target)[0].id] = 'o'
+      let turn = 'o'
+      let cellIndex = $(event.target)[0].id
+      console.log(cells)
+      console.log(moves)
       moves++
-      if (moves === 9) {
-        $('.box').addClass('tie')
-        $('#tie').removeClass('hidden')
-      } else if (moves >= 5) {
+      if (moves >= 5) {
         checkWin()
       }
     }
@@ -117,7 +194,8 @@ const gameProgress = () => {
 }
 
 module.exports = {
-  board,
+  newGame,
+  cells,
   gameProgress,
   checkWin
 }

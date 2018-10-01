@@ -21,24 +21,26 @@
         <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
         <input type="submit" value="Register" />
         <p id="display-message-signUp"></p>
+        <legent>Already have an account?  Log in and start playing!</legent>
         <button id="logIn" style="background-color: rgb(170, 225, 230)"> Back to Log In </button>
       </form>
       <br />
       <form id="sign-in-form">
-        <legend>Please sign in below </legend>
+        <legend id="1stStep">Please sign in below </legend>
+        <legned class="hidden" id="2ndStep">Thanks for signing up! Please log in to start playing</legned>
         <input required type="email" name="credentials[email]" placeholder="Email" />
         <input required type="password" name="credentials[password]" placeholder="Password" />
         <input type="submit" value="Sign In" />
         <p id="display-message-signIn"></p>
         <br />
         <legent>New Player? Please sign up</legent>
-        <button id="signUp" style="background-color: rgb(170, 225, 230)"> Sign Up </button>
+        <button id="signUp" style="background-color: rgb(170, 225, 230)"> Create Account </button>
       </form>
-      <p id="display-message-passChange" class="hidden"></p>
-      <button id="changePass" class="hidden"> Change Password </button>
       <br />
+      <button id="changePass" class="hidden"> Change Password </button>
       <form id="passChange-form" class="hidden">
         <legend>Change your password</legend>
+        <p id="display-message-passChange" class="hidden"></p>
         <input required type="password" name="passwords[old]" placeholder="Old Password" />
         <input required type="password" name="passwords[new]" placeholder="New Password" />
         <input type="submit" value="Change Password" />
@@ -50,19 +52,21 @@
       <!-- <div id="game-board" class="board clearfix"></div>
       <br /> -->
       <!-- <button id="newGame" class="hidden"> Start New Game </button> -->
-      <button id="newGame"> Start New Game </button>
+      <form id="newGame-form" class="hidden">
+        <input type="submit" id="newGame" value="Start New Game" />
+      </form>
       <p id="xWins" class="hidden">'x' Wins</p>
       <p id="oWins" class="hidden">'o' Wins</p>
       <p id="tie" class="hidden">It's a tie!</p>
-      <div class="alert alert-danger alert-dismissable"> Invalid move, Pick an empty square
+      <div class="alert alert-danger hidden"> Invalid move, Pick an empty square
         <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
       </div>
-      <div class="container-fluid w-auto">
+      <div id="gameBoard" class="container-fluid w-auto hidden">
         <div class="row justify-content-center">
           <div class="col"></div>
-          <div class="col box" id="0"></div>
-          <div class="col box" id="1"></div>
-          <div class="col box" id="2"></div>
+          <div class="col box vcenter" id="0"></div>
+          <div class="col box vcenter" id="1"></div>
+          <div class="col box vcenter" id="2"></div>
           <div class="col"></div>
         </div>
         <div class="row justify-content-center">
@@ -80,15 +84,32 @@
           <div class="col"></div>
         </div>
       </div>
-      <h2>Find A Game</h2>
+      <br />
+      <table class="table hidden" id="scoreBoard">
+        <thead>
+          <tr>
+            <th scope="col">Total Games Played</th>
+            <th scope="col">Games 'X' Won</th>
+            <th scope="col">Games 'O' Won</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="update"></td>
+            <td id="x"></td>
+            <td id="o"></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <h2>Find A Game</h2>
         <form id='findGame'class="game">
           <input name="Game[id]" type="text" placeholder="Game ID">
           <input type="submit" value="Find Game" class="btn btn-defaul" />
-        </form>
-      <h2>List All Games</h2>
-        <form id='allGames'class="games">
-          <input type="submit" value="Retrieve All Games" class="btn btn-defaul" />
-        </form>
-
+        </form> -->
+      <form id="allGames" class="games hidden">
+        <legend>List All Games</legend>
+        <input type="submit" value="Retrieve All Games" class="btn btn-defaul" />
+      </form>
+      <div id="allGamesPlayed"></div>
     </body>
 </html>

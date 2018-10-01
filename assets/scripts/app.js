@@ -1,14 +1,8 @@
 'use strict'
 
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
 const authEvents = require('./auth/events.js')
-const gameUI = require('./gameUI.js')
-const gameEvents = require('./game.js')
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
+const gameEvent = require('./gameEvent.js')
+const game = require('./game.js')
 
 $(() => {
   // authentication
@@ -33,13 +27,15 @@ $(() => {
   })
   $('#logOut').on('click', authEvents.onLogOut)
   // game
-  $('#newGame').on('click', gameUI.newGame)
-  // x win
-  // o win
-  // find game
-  // all game
-  $('.box').on('click', gameEvents.gameProgress)
-  // $('.box').on('click', gameEvents, () => {
-  //   $(event.target).text('X')
-  // })
+  $('#newGame-form').on('click', gameEvent.onNewGame)
+  // $('.box').on('click', game.gameProgress)
+  $('#newGame-form').on('click', game.newGame)
+  $('#allGames').on('submit', gameEvent.onAllGames)
+  $('#update').on('submit', gameEvent.onUpdateScore)
+  $('.alert').on('click', game, () => {
+    $('.alert').hide()
+  })
+  // $('#0').on('click', gameEvent.)
+  // $('#x').on('submit', gameEvent.onUpdateX)
+  // $('#o').on('submit', gameEvent.onUpdateO)
 })
