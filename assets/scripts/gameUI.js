@@ -23,9 +23,9 @@ const createFail = function (response) {
   console.log('gameBoardFail')
 }
 
-const updateSuccess = function (response) {
+const updateSuccess = function (data) {
   console.log('totSuccess')
-  $('.box').on('click', game.gameProgress)
+  store.game = data.game
 }
 
 // const totFail = function (response) {

@@ -67,7 +67,7 @@ const logOut = function () {
   $('#changePass').addClass('hidden')
   $('#gameBoard').addClass('hidden')
   $('#scoreBoard').addClass('hidden')
-  $('#gameLib').addClass('hidden')
+  $('#allGames').addClass('hidden')
 }
 
 module.exports = {

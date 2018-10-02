@@ -23,13 +23,13 @@ const onNewGame = function (event) {
     .catch(console.log)
 }
 
-const onUpdateScore = function (event) {
-  game.gameProgress(event)
+const onUpdateScore = function (data) {
+  // game.gameProgress(event)
   event.preventDefault()
-  const index = game.cellIndex
-  const value = game.turn
-  const over = game.gameOver
-  gameApi.updateScore(index, value, over)
+  // const index = game.cellIndex
+  // const value = game.turn
+  // const over = game.gameOver
+  gameApi.updateScore(data)
     .then(console.log)
     .catch(console.log)
 }

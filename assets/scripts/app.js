@@ -31,7 +31,7 @@ $(() => {
   // $('.box').on('click', game.gameProgress)
   $('#newGame-form').on('click', game.newGame)
   $('#allGames').on('submit', gameEvent.onAllGames)
-  $('#update').on('submit', gameEvent.onUpdateScore)
+  $('#gameBoard').on('submit', game.gameProgress)
   $('.alert').on('click', game, () => {
     $('.alert').hide()
   })

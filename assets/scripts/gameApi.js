@@ -28,26 +28,14 @@ const allGames = function (gameData) {
   })
 }
 
-const updateScore = function (index, value, over) {
-  console.log(index)
-  console.log(value)
-  console.log(over)
+const updateScore = function (gameData) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.id,
+    url: config.apiUrl + '/games/' + store.game.id,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
     method: 'PATCH',
-    data: {
-      'game': {
-        'cell': {
-          'index': index,
-          'value': game.cellIndex
-          // value is the turn
-        },
-        'over': over
-      }
-    }
+    data: gameData
   })
 }
 

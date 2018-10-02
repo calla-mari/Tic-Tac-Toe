@@ -1,5 +1,6 @@
 const gameUI = require('./gameUI.js')
 const store = require('./store.js')
+const gameApi = require('./gameApi.js')
 
 let moves = 0
 
@@ -155,30 +156,45 @@ const checkWin = () => {
   }
 }
 
-const gameProgress = () => {
+const gameProgress = (event) => {
   console.log(cells)
   event.preventDefault()
+  let data
   if ($(event.target).is(':empty')) {
     console.log(cells)
     if (moves % 2 === 0) {
       $(event.target).text('x')
-      cells[$(event.target)[0].id] = 'x'
-      let turn = 'x'
-      let cellIndex = $(event.target)[0].id
-      console.log(cells)
-      console.log(moves)
+      cells[$(event.target).data('index')] = 'x'
+      let cellIndex = $(event.target).data('index')
+      let letter = 'x'
       moves++
+      data = {
+        'game': {
+          'cell': {
+            'index': cellIndex,
+            'value': letter
+          },
+          'over': false
+        }
+      }
       if (moves >= 5) {
         checkWin()
       }
     } else if (moves % 2 !== 0) {
       $(event.target).text('o')
-      cells[$(event.target)[0].id] = 'o'
-      let turn = 'o'
-      let cellIndex = $(event.target)[0].id
-      console.log(cells)
-      console.log(moves)
+      cells[$(event.target).data('index')] = 'o'
+      let cellIndex = $(event.target).data('index')
+      let letter = 'o'
       moves++
+      data = {
+        'game': {
+          'cell': {
+            'index': cellIndex,
+            'value': letter
+          },
+          'over': false
+        }
+      }
       if (moves >= 5) {
         checkWin()
       }
@@ -191,6 +207,9 @@ const gameProgress = () => {
     //   })
     // }
   }
+  gameApi.updateScore(data)
+    .then(console.log)
+    .catch(console.log)
 }
 
 module.exports = {

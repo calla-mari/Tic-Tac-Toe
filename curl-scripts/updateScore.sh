@@ -1,17 +1,17 @@
 #!/bin/bash
 
-curl --include --request PATCH "https://tic-tac-toe-wdi.herokuapp.com/games/${ID}" \
+curl "https://tic-tac-toe-wdi.herokuapp.com/games/${ID}" \
   --include \
   --request PATCH \
-  --header "Authorization: Token token=${TOKEN}"\
   --header "Content-type: application/json" \
+  --header "Authorization: Token token="${TOKEN}"" \
   --data '{
     "game": {
       "cell": {
-        "index": "'"${INDEX}"'",
-        "value": "'"${VALUE}"'"
+        "index": 4,
+        "value": "o"
       },
-       over: "'"${OVER}"'"
+       "over": true
      }
   }'
 
