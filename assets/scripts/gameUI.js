@@ -14,7 +14,7 @@ const allGamesFail = function (response) {
 
 const createSuccess = function (response) {
   console.log('createSuccess')
-  store.gameNew = response.gameNew
+  store.game = response.game
   $('#gameBoard').removeClass('hidden')
   // $('#gameBoard').removeClass('hidden')
 }

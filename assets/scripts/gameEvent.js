@@ -24,11 +24,7 @@ const onNewGame = function (event) {
 }
 
 const onUpdateScore = function (data) {
-  // game.gameProgress(event)
   event.preventDefault()
-  // const index = game.cellIndex
-  // const value = game.turn
-  // const over = game.gameOver
   gameApi.updateScore(data)
     .then(console.log)
     .catch(console.log)

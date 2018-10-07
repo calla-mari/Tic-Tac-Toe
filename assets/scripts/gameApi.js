@@ -30,7 +30,7 @@ const allGames = function (gameData) {
 
 const updateScore = function (gameData) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + `/games/${store.game.id}`,
     headers: {
       Authorization: `Token token=${store.user.token}`
     },

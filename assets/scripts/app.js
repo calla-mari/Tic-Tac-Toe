@@ -28,11 +28,17 @@ $(() => {
   $('#logOut').on('click', authEvents.onLogOut)
   // game
   $('#newGame-form').on('click', gameEvent.onNewGame)
-  // $('.box').on('click', game.gameProgress)
+  $('.box').on('click', game.gameProgress)
   $('#newGame-form').on('click', game.newGame)
   $('#allGames').on('submit', gameEvent.onAllGames)
-  $('#gameBoard').on('submit', game.gameProgress)
+  // $('#gameBoard').on('click', game.gameProgress)
+  $('.col').on('click', game, () => {
+    $('.alert').hide()
+  })
   $('.alert').on('click', game, () => {
+    $('.alert').hide()
+  })
+  $('#newGame').on('click', game, () => {
     $('.alert').hide()
   })
   // $('#0').on('click', gameEvent.)

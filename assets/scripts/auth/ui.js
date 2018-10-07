@@ -46,6 +46,10 @@ const passChangeSuccess = function () {
   $('#passChange-form').trigger('reset')
   $('#changePass').removeClass('hidden')
   $('#display-message-passChange').removeClass('hidden')
+  setTimeout(function () {
+    $('#display-message-passChange').fadeOut('500')
+  }, 1000)
+
   $('#passChange-form').addClass('hidden')
   // setTimeout(function () {
   //   $('#display-message-passChange').fadeOut().empty()
@@ -56,6 +60,10 @@ const passChangeFail = function () {
   $('#display-message-passChange').html('Incorrect Password')
   $('#display-message-passChange').css('color', 'red')
   $('#passChange-form').trigger('reset')
+  $('#display-message-passChange').removeClass('hidden')
+  setTimeout(function () {
+    $('#display-message-passChange').fadeOut('500')
+  }, 1000)
 }
 
 const logOut = function () {
@@ -68,6 +76,7 @@ const logOut = function () {
   $('#gameBoard').addClass('hidden')
   $('#scoreBoard').addClass('hidden')
   $('#allGames').addClass('hidden')
+  store.game = null
 }
 
 module.exports = {
