@@ -16,26 +16,22 @@ const newGame = function () {
   $('#gameBoard').removeClass('hidden')
   $('.box').text('')
   moves = 0
-  // $('.box').on('click', gameProgress)
   $('.box').removeClass('win')
   $('.box').removeClass('tie')
   $('#xWins').addClass('hidden')
   $('#oWins').addClass('hidden')
   $('#tie').addClass('hidden')
   $('#update').text(gamesPlayed++)
-
 }
 
 let x = 1
 let o = 1
 
 const checkWin = () => {
-  debugger
   if (store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2] && store.game.cells[0] !== '') {
     $('#0').addClass('win')
     $('#1').addClass('win')
     $('#2').addClass('win')
-    // $('.box').off('click', gameProgress)
     store.game.over = true
     if (store.game.cells[0] === 'x') {
       $('#xWins').removeClass('hidden')
@@ -48,7 +44,6 @@ const checkWin = () => {
     $('#3').addClass('win')
     $('#4').addClass('win')
     $('#5').addClass('win')
-    // $('.box').off('click', gameProgress)
     store.game.over = true
     if (store.game.cells[4] === 'x') {
       $('#xWins').removeClass('hidden')
@@ -61,7 +56,6 @@ const checkWin = () => {
     $('#6').addClass('win')
     $('#7').addClass('win')
     $('#8').addClass('win')
-    // $('.box').off('click', gameProgress)
     store.game.over = true
     if (store.game.cells[8] === 'x') {
       $('#xWins').removeClass('hidden')
@@ -74,7 +68,6 @@ const checkWin = () => {
     $('#0').addClass('win')
     $('#3').addClass('win')
     $('#6').addClass('win')
-    // $('.box').off('click', gameProgress)
     store.game.over = true
     if (store.game.cells[0] === 'x') {
       $('#xWins').removeClass('hidden')
@@ -87,7 +80,6 @@ const checkWin = () => {
     $('#1').addClass('win')
     $('#4').addClass('win')
     $('#7').addClass('win')
-    // $('.box').off('click', gameProgress)
     store.game.over = true
     if (store.game.cells[4] === 'x') {
       $('#xWins').removeClass('hidden')
@@ -100,7 +92,6 @@ const checkWin = () => {
     $('#2').addClass('win')
     $('#5').addClass('win')
     $('#8').addClass('win')
-    // $('.box').off('click', gameProgress)
     store.game.over = true
     if (store.game.cells[8] === 'x') {
       $('#xWins').removeClass('hidden')
@@ -113,7 +104,6 @@ const checkWin = () => {
     $('#0').addClass('win')
     $('#4').addClass('win')
     $('#8').addClass('win')
-    // $('.box').off('click', gameProgress)
     store.game.over = true
     if (store.game.cells[0] === 'x') {
       $('#xWins').removeClass('hidden')
@@ -126,7 +116,6 @@ const checkWin = () => {
     $('#2').addClass('win')
     $('#4').addClass('win')
     $('#6').addClass('win')
-    // $('.box').off('click', gameProgress)
     store.game.over = true
     if (store.game.cells[4] === 'x') {
       $('#xWins').removeClass('hidden')
@@ -145,13 +134,13 @@ const checkWin = () => {
 const gameProgress = (event) => {
   event.preventDefault()
   let data
-  if (!store.game.over) {
+  if (store.game.over === false) {
     if (!$(event.target).text()) {
       if (moves % 2 === 0) {
         $(event.target).text('x')
         store.game.cells[$(event.target).data('index')] = 'x'
-        let cellIndex = $(event.target).data('index')
-        let letter = 'x'
+        const cellIndex = $(event.target).data('index')
+        const letter = 'x'
         moves++
         if (moves >= 5) {
           checkWin()
@@ -168,8 +157,8 @@ const gameProgress = (event) => {
       } else if (moves % 2 !== 0) {
         $(event.target).text('o')
         store.game.cells[$(event.target).data('index')] = 'o'
-        let cellIndex = $(event.target).data('index')
-        let letter = 'o'
+        const cellIndex = $(event.target).data('index')
+        const letter = 'o'
         moves++
         if (moves >= 5) {
           checkWin()
@@ -184,14 +173,12 @@ const gameProgress = (event) => {
           }
         }
       }
-    } else {
-      debugger
-      $('.alert').show()
-    // if ($('.alert').show()) {
-    //   $('body').click(() => {
-    //     $('.alert').hide()
-    //   })
-    // }
+    // } else {
+      // debugger
+      // $('#display-alert').removeClass('hidden')
+      // $('#display-alert').html('Invalid move. Please pick an empty square')
+      // $('#display-alert').css('color', 'red')
+      // $('.alert').show()
     }
     gameEvent.onUpdateScore(data, store.game.id)
   }

@@ -4,6 +4,9 @@ const store = require('../store.js')
 const game = require('../game.js')
 
 const signInSuccess = function (response) {
+  $('#display-message').html('Great! Click "Start New Game" to start playing')
+  $('#display-message').css('color', 'green')
+  $('#display-message').removeClass('hidden')
   $('#newGame-form').removeClass('hidden')
   $('#sign-in-form').trigger('reset')
   store.user = response.user
@@ -13,57 +16,48 @@ const signInSuccess = function (response) {
   $('#changePass').removeClass('hidden')
   $('#scoreBoard').removeClass('hidden')
   $('#allGames').removeClass('hidden')
-  // $('#gameBoard').removeClass('hidden')
+  $('#newGame').removeClass('hidden')
 }
 
 const signInFail = function () {
-  $('#display-message-signIn').html('Incorrect Email or Password')
-  $('#display-message-signIn').css('color', 'red')
+  $('#display-message').html('Incorrect Email or Password')
+  $('#display-message').css('color', 'red')
   $('#sign-in-form').trigger('reset')
+  $('#display-message').removeClass('hidden')
 }
 
 const signUpSuccess = function () {
-  $('#display-message-signUp').html('Thank you for signing up! Please sign in to play')
-  $('#display-message-signUp').css('color', 'green')
+  $('#display-message').html('Thank you for signing up! Please sign in to play')
+  $('#display-message').css('color', 'green')
+  $('#display-message').removeClass('hidden')
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').removeClass('hidden')
   $('#sign-up-form').addClass('hidden')
   $('#1stStep').addClass('hidden')
   $('#2ndStep').removeClass('hidden')
-  // $('#logOut').removeClass('hidden')
-  // $('#changePass').removeClass('hidden')
 }
 
 const signUpFail = function () {
-  $('#display-message-signUp').html('Something went wrong, Please try again')
-  $('#display-message-signUp').css('color', 'red')
+  $('#display-message').html('Something went wrong, Please try again')
+  $('#display-message').css('color', 'red')
   $('#sign-up-form').trigger('reset')
+  $('#display-message').removeClass('hidden')
 }
 
 const passChangeSuccess = function () {
-  $('#display-message-passChange').html('Password Changed!')
-  $('#display-message-passChange').css('color', 'green')
+  $('#display-message').html('Password Changed!')
+  $('#display-message').css('color', 'green')
   $('#passChange-form').trigger('reset')
   $('#changePass').removeClass('hidden')
-  $('#display-message-passChange').removeClass('hidden')
-  setTimeout(function () {
-    $('#display-message-passChange').fadeOut('500')
-  }, 1000)
-
+  $('#display-message').removeClass('hidden')
   $('#passChange-form').addClass('hidden')
-  // setTimeout(function () {
-  //   $('#display-message-passChange').fadeOut().empty()
-  // }, 3000)
 }
 
 const passChangeFail = function () {
-  $('#display-message-passChange').html('Incorrect Password')
-  $('#display-message-passChange').css('color', 'red')
+  $('#display-message').html('Incorrect Password')
+  $('#display-message').css('color', 'red')
   $('#passChange-form').trigger('reset')
-  $('#display-message-passChange').removeClass('hidden')
-  setTimeout(function () {
-    $('#display-message-passChange').fadeOut('500')
-  }, 1000)
+  $('#display-message').removeClass('hidden')
 }
 
 const logOut = function () {
@@ -76,7 +70,22 @@ const logOut = function () {
   $('#gameBoard').addClass('hidden')
   $('#scoreBoard').addClass('hidden')
   $('#allGames').addClass('hidden')
+  $('#allGamesPlayed').addClass('hidden')
+  $('#1stStep').removeClass('hidden')
+  $('#2ndStep').addClass('hidden')
+  $('#xWins').addClass('hidden')
+  $('#oWins').addClass('hidden')
+  $('#tie').addClass('hidden')
+  $('#display-message').html('Sucessfully Logged Out!')
+  $('#display-message').css('color', 'green')
+  $('#display-message').removeClass('hidden')
   store.game = null
+}
+
+const logOutFail = function () {
+  $('#display-message').html('Log out unsuccessful, Please try again')
+  $('#display-message').css('color', 'red')
+  $('#display-message').removeClass('hidden')
 }
 
 module.exports = {
@@ -86,5 +95,6 @@ module.exports = {
   signInFail,
   passChangeSuccess,
   passChangeFail,
-  logOut
+  logOut,
+  logOutFail
 }

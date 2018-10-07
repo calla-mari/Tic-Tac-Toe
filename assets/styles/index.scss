@@ -11,6 +11,10 @@
   display: none;
 }
 
+.btn {
+  margin: 10px
+}
+
 $background-color: rgb(180, 180, 180);
 $font-color: #dfdfdf;
 $white: #fff;
@@ -20,14 +24,13 @@ $charcoal: #303030;
 
 #newGame {
   background-color: rgb(50, 200, 220);
-  margin: 50px;
+  margin: 10px;
 }
 
 body {
   background-color: $background-color;
   text-align: center;
 }
-
 
 .box {
   align-items: center;
@@ -54,9 +57,25 @@ body {
   background-color: rgb(170, 225, 230);
 }
 
-.tie {
- background-color: rgba(255, 255, 255, .3);
+#xWins {
+  font-size: 30px;
+  background-color: rgba(170, 225, 230, .8);
 }
+
+#oWins {
+  font-size: 30px;
+  background-color: rgba(170, 225, 230, .8);
+}
+
+.tie {
+ background-color: rgba(225, 255, 255, .3);
+}
+
+#tie {
+  font-size: 30px;
+  background-color: rgba(225, 255, 255, .5);
+}
+
 
 .box:hover {
   background-color: rgba(255, 255, 255, .2);
@@ -65,6 +84,8 @@ body {
 #2ndStep {
   color: rgb(62, 140, 44);
 }
-// #newGame {
-//   background-color: rgb(50, 200, 220);
-// }
+
+.table {
+  background-color: rgba(255, 255, 255, .2);
+  border: 1px;
+}

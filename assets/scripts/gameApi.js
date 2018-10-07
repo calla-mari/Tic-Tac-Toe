@@ -6,7 +6,6 @@ const config = require('./config.js')
 const game = require('./game.js')
 
 const createGame = function (gameData) {
-  // const gameId = gameData.game.id
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {
@@ -39,32 +38,8 @@ const updateScore = function (gameData) {
   })
 }
 
-// const updateX = function (xData) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/:id',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`
-//     },
-//     method: 'PATCH',
-//     data: xData
-//   })
-// }
-//
-// const updateO = function (oData) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/:id',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`
-//     },
-//     method: 'PATCH',
-//     data: oData
-//   })
-// }
-
 module.exports = {
   createGame,
   allGames,
   updateScore
-  // updateX,
-  // updateO
 }

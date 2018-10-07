@@ -31,7 +31,7 @@ const onPassChange = function (event) {
 const onLogOut = function (event) {
   api.logOut()
     .then(ui.logOut)
-    .catch(ui.logOut)
+    .catch(ui.logOutFail)
 }
 
 module.exports = {
