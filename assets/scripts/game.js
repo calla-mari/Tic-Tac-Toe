@@ -21,6 +21,7 @@ const newGame = function () {
   $('#xWins').addClass('hidden')
   $('#oWins').addClass('hidden')
   $('#tie').addClass('hidden')
+  $('#scoreBoard').removeClass('hidden')
   $('#update').text(gamesPlayed++)
 }
 
@@ -174,7 +175,6 @@ const gameProgress = (event) => {
         }
       }
     // } else {
-      // debugger
       // $('#display-alert').removeClass('hidden')
       // $('#display-alert').html('Invalid move. Please pick an empty square')
       // $('#display-alert').css('color', 'red')

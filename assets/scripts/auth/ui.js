@@ -14,9 +14,12 @@ const signInSuccess = function (response) {
   $('#sign-up-form').addClass('hidden')
   $('#logOut').removeClass('hidden')
   $('#changePass').removeClass('hidden')
-  $('#scoreBoard').removeClass('hidden')
   $('#allGames').removeClass('hidden')
   $('#newGame').removeClass('hidden')
+  $('#new').addClass('hidden')
+  $('.newAccount').addClass('hidden')
+  $('.existingAcct').addClass('hidden')
+  // $('#cancel').removeClass('hidden')
 }
 
 const signInFail = function () {
@@ -35,6 +38,7 @@ const signUpSuccess = function () {
   $('#sign-up-form').addClass('hidden')
   $('#1stStep').addClass('hidden')
   $('#2ndStep').removeClass('hidden')
+  $('.existingAcct').addClass('hidden')
 }
 
 const signUpFail = function () {
@@ -51,6 +55,7 @@ const passChangeSuccess = function () {
   $('#changePass').removeClass('hidden')
   $('#display-message').removeClass('hidden')
   $('#passChange-form').addClass('hidden')
+  $('#cancel').addClass('hidden')
 }
 
 const passChangeFail = function () {
@@ -79,6 +84,9 @@ const logOut = function () {
   $('#display-message').html('Sucessfully Logged Out!')
   $('#display-message').css('color', 'green')
   $('#display-message').removeClass('hidden')
+  $('.newAccount').removeClass('hidden')
+  $('#cancel').addClass('hidden')
+  // $('.existingAcct').addClass('hidden')
   store.game = null
 }
 

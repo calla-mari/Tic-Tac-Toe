@@ -5,6 +5,7 @@ const game = require('./game.js')
 
 const allGamesSuccess = function (data) {
   $('#allGamesPlayed').html(`Total Games played by User: ${data.games.length}`)
+  $('#allGamesPlayed').removeClass('hidden')
 }
 
 const allGamesFail = function (response) {
