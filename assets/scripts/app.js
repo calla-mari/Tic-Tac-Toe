@@ -90,6 +90,7 @@ $(() => {
   })
   $('#newGame').on('click', game, () => {
     $('#display-alert').addClass('hidden')
+    $('#passChange-form').trigger('reset')
   })
   $('.btn').on('click', game, () => {
     $('#display-alert').addClass('hidden')
