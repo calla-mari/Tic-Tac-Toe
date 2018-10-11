@@ -68,6 +68,9 @@ $(() => {
     $('#display-message').removeClass('hidden')
   })
   $('#logOut').on('click', authEvents.onLogOut)
+  $('#logOut').on('click', authEvents, () => {
+    $('#passChange-form').trigger('reset')
+  })
   // game
   $('#newGame-form').on('click', gameEvent.onNewGame)
   $('.box').on('click', game.gameProgress)
