@@ -89,6 +89,9 @@ const logOut = function () {
   $('#passChange-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
+  $('#update').text('1')
+  $('#x').text('0')
+  $('#o').text('0')
   // $('.existingAcct').addClass('hidden')
   store.game = null
 }
