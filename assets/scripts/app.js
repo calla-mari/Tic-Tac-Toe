@@ -75,6 +75,9 @@ $(() => {
     $('#update').text('1')
     $('#x').text('0')
     $('#o').text('0')
+    let gamesPlayed = 1
+    let x = 1
+    let o = 1
   })
   // game
   $('#newGame-form').on('click', gameEvent.onNewGame)
