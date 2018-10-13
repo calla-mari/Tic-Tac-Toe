@@ -2,14 +2,15 @@ const gameUI = require('./gameUI.js')
 const store = require('./store.js')
 const gameApi = require('./gameApi.js')
 const gameEvent = require('./gameEvent.js')
+const app = require('./app.js')
 
 let moves = 0
 
-let gamesPlayed = 1
+let gamesPlayed = app.gamesPlayed
 
-$('#update').text('1')
-$('#x').text('0')
-$('#o').text('0')
+// $('#update').text('1')
+// $('#x').text('0')
+// $('#o').text('0')
 
 const newGame = function () {
   event.preventDefault()
@@ -25,8 +26,8 @@ const newGame = function () {
   $('#update').text(gamesPlayed++)
 }
 
-let x = 1
-let o = 1
+let x = app.x
+let o = app.o
 
 const checkWin = () => {
   if (store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2] && store.game.cells[0] !== '') {
