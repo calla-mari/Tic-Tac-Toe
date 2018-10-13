@@ -6,7 +6,7 @@ const app = require('./app.js')
 
 let moves = 0
 
-// let gamesPlayed = app.gamesPlayed
+let gamesPlayed = app.gamesPlayed
 
 // $('#update').text('1')
 // $('#x').text('0')
@@ -26,8 +26,8 @@ const newGame = function () {
   $('#update').text(gamesPlayed++)
 }
 
-// let x = app.x
-// let o = app.o
+let x = app.x
+let o = app.o
 
 const checkWin = () => {
   if (store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2] && store.game.cells[0] !== '') {
