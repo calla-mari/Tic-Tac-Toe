@@ -19,6 +19,12 @@ $(() => {
   })
   $('#sign-in-form').on('click', game, () => {
     $('#display-message').addClass('hidden')
+    $('#update').text('1')
+    $('#x').text('0')
+    $('#o').text('0')
+    let gamesPlayed = 1
+    let x = 1
+    let o = 1
   })
   $('.btn').on('click', game, () => {
     $('#display-message').addClass('hidden')
@@ -71,14 +77,14 @@ $(() => {
   $('#logOut').on('click', authEvents, () => {
     $('#passChange-form').trigger('reset')
   })
-  $('#logOut').on('click', game, () => {
-    $('#update').text('1')
-    $('#x').text('0')
-    $('#o').text('0')
-    let gamesPlayed = 1
-    let x = 1
-    let o = 1
-  })
+  // $('#logOut').on('click', game, () => {
+  //   $('#update').text('1')
+  //   $('#x').text('0')
+  //   $('#o').text('0')
+  //   let gamesPlayed = 1
+  //   let x = 1
+  //   let o = 1
+  // })
   // game
   $('#newGame-form').on('click', gameEvent.onNewGame)
   $('.box').on('click', game.gameProgress)
