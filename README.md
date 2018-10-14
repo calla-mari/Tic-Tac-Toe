@@ -1,6 +1,6 @@
 Description:
 
-This is a game of Tic-Tac-Toe, where players create an account then logs into to play the game. Player one plays as X, alternating with player two, O. The game will determine the winner and keeps track of total game played and the current session's scores.
+This is a game of Tic-Tac-Toe, where players create an account then logs into to play the game. Player one plays as X, alternating with player two, O. The game will determine the winner and keeps track of total game played.
 
 Technologies used: HTML, CSS, JAVASCRIPT
 
