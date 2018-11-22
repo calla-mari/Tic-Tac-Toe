@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="./public/tttico.png">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    </head>
+    <body>
+      <h1>Welcome to the game of Tic-Tac-Toe</h1>
+      <img class="ttt" style="width: 200px" src="./public/ttt.png" alt="Tic-Tac-Toe">
+      <form id="sign-up-form" class="hidden">
+        <legend>Please sign up below</legend>
+        <input required type="email" name="credentials[email]" placeholder="Email" />
+        <input required type="password" name="credentials[password]" placeholder="Password" />
+        <input required type="password" name="credentials[password_confirmation]" placeholder="Confirm Password"/>
+        <input type="submit" class="btn btn-default" value="Register" />
+      </form>
+      <p id="account" class="hidden existingAcct">Already have an account?  Log in and start playing!</p>
+      <button id="logIn" class="btn btn-default hidden existingAcct" style="background-color: rgb(170, 225, 230)"> Back to Log In </button>
+      <br />
+      <form id="sign-in-form">
+        <legend id="1stStep">Please sign in below </legend>
+        <legned class="hidden" id="2ndStep">Thanks for signing up! Please log in to start playing</legned>
+        <input required type="email" name="credentials[email]" placeholder="Email" />
+        <input required type="password" name="credentials[password]" placeholder="Password" />
+        <input type="submit" class="btn btn-default" value="Sign In" />
+        <br />
+      </form>
+      <p class="newAccount">New Player? Please sign up</p>
+      <button class="btn btn-default newAccount" style="background-color: rgb(170, 225, 230)"> Create Account </button>
+      <br />
+      <p id="display-message" class="hidden"></p>
+      <button id="changePass" class="hidden btn btn-default"> Change Password </button>
+      <form id="passChange-form" class="hidden">
+        <legend>Change your password</legend>
+        <input required type="password" name="passwords[old]" placeholder="Old Password" />
+        <input required type="password" name="passwords[new]" placeholder="New Password" />
+        <input type="submit" class="btn btn-default" value="Change Password" />
+      </form>
+      <button id="cancel" class="btn btn-default hidden"> Cancel </button>
+      <br />
+      <button id="logOut" class="hidden btn btn-default"> Log Out </button>
+      <br />
+      <p id="display-alert" class="hidden"></p>
+      <form id="newGame-form" class="hidden">
+        <input type="submit" class="btn btn-default" id="newGame" value="Start New Game" />
+      </form>
+      <p id="xWins" class="hidden">'x' Wins</p>
+      <p id="oWins" class="hidden">'o' Wins</p>
+      <p id="tie" class="hidden">It's a tie!</p>
+      <div id="gameBoard" class="container-fluid w-auto hidden">
+        <div class="row justify-content-center">
+          <!-- <div class="col"></div> -->
+          <div class="col-4 box top left" id="0" data-index="0"></div>
+          <div class="col-4 box top" id="1" data-index="1"></div>
+          <div class="col-4 box top right" id="2" data-index="2"></div>
+          <!-- <div class="col"></div> -->
+        </div>
+        <div class="row justify-content-center">
+          <!-- <div class="col"></div> -->
+          <div class="col-4 box left" id="3" data-index="3"></div>
+          <div class="col-4 box" id="4" data-index="4"></div>
+          <div class="col-4 box right" id="5" data-index="5"></div>
+          <!-- <div class="col"></div> -->
+        </div>
+        <div class="row justify-content-center">
+          <!-- <div class="col"></div> -->
+          <div class="col-4 box bottom left" id="6" data-index="6"></div>
+          <div class="col-4 box bottom" id="7" data-index="7"></div>
+          <div class="col-4 box bottom right" id="8" data-index="8"></div>
+          <!-- <div class="col"></div> -->
+        </div>
+      </div>
+      <br />
+      <br />
+      <form id="allGames" class="games hidden">
+        <legend>List All Games</legend>
+        <input type="submit" value="Retrieve All Games" class="btn btn-defaul" />
+      </form>
+      <div id="allGamesPlayed"></div>
+    </body>
+</html>
