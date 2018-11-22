@@ -40,16 +40,52 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+@media (min-width: 576px) {
+  #gameBoard {
+    max-width: 540px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #gameBoard {
+      width: 375px;
+      height: 375px;
+  }
+}
+
+#gameBoard {
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  height: 350px;
+}
+
 .box {
   align-items: center;
-  border: 1px solid $white;
+  border: 3px solid $white;
   color: $font-color;
   display: flex;
-  height: 100px;
+  height: 130px;
   justify-content: center;
   font-size: 80px;
   padding-bottom: 10px;
   font-weight: 600;
+}
+
+.top {
+  border-top: none;
+}
+
+.left {
+  border-left: none;
+}
+
+.right {
+  border-right: none;
+}
+
+.bottom {
+  border-bottom: none;
 }
 
 .vcenter {
