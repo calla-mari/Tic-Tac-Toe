@@ -19,13 +19,7 @@ const signInSuccess = function (response) {
   $('#new').addClass('hidden')
   $('.newAccount').addClass('hidden')
   $('.existingAcct').addClass('hidden')
-  // $('#update').text('1')
-  // $('#x').text('0')
-  // $('#o').text('0')
-  // let gamesPlayed = 1
-  // let x = 1
-  // let o = 1
-  // $('#cancel').removeClass('hidden')
+  $('.ttt').addClass('hidden')
 }
 
 const signInFail = function () {
@@ -101,7 +95,6 @@ const logOut = function () {
   let gamesPlayed = 1
   let x = 1
   let o = 1
-  // $('.existingAcct').addClass('hidden')
   store.game = null
 }
 

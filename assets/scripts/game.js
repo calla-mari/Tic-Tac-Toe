@@ -175,12 +175,6 @@ const gameProgress = (event) => {
           }
         }
       }
-    // } else {
-    //   debugger
-    //   $('.alert').show()
-    //   $('#display-alert').removeClass('hidden')
-    //   $('#display-alert').html('Invalid move. Please pick an empty square')
-    //   $('#display-alert').css('color', 'red')
     }
     gameEvent.onUpdateScore(data, store.game.id)
   }

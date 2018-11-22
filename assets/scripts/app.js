@@ -76,29 +76,14 @@ $(() => {
   $('#logOut').on('click', authEvents.onLogOut)
   $('#logOut').on('click', authEvents, () => {
     $('#passChange-form').trigger('reset')
+    $('.ttt').removeClass('hidden')
   })
-  // $('#logOut').on('click', game, () => {
-  //   $('#update').text('1')
-  //   $('#x').text('0')
-  //   $('#o').text('0')
-  //   let gamesPlayed = 1
-  //   let x = 1
-  //   let o = 1
-  // })
   // game
   $('#newGame-form').on('click', gameEvent.onNewGame)
   $('.box').on('click', game.gameProgress)
   $('#newGame').on('click', game.newGame)
   $('#allGames').on('submit', gameEvent.onAllGames)
-  // $('.box').on('click', game, () => {
-  //   $('.alert').hide()
-  // })
-  // $('.alert').on('click', game, () => {
-  //   $('.alert').hide()
-  // })
-  // $('#newGame').on('click', game, () => {
-  //   $('.alert').hide()
-  // })
+
   $('.box').on('click', game, () => {
     $('#display-alert').addClass('hidden')
   })
